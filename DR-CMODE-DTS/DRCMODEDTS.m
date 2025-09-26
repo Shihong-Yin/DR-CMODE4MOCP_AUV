@@ -48,7 +48,7 @@ classdef DRCMODEDTS < ALGORITHM
                 % 判定：PF_new <= PF_old（逐目标都不差）且 存在一目标 PF_new < PF_old（严格更好）
                 notWorse = all(PF_new <= PF_old, 2);          % 所有目标不更差
                 strictBetter = any(PF_new <  PF_old, 2);      % 至少一个目标严格更好
-                improved = notWorse & strictBetter;                 % 逻辑向量，长度为种群规模
+                improved = notWorse & strictBetter;           % 逻辑向量，长度为种群规模
                 improve_flag = double(improved);
                 
                 PF_old = PF_new;   % 用于下一代比较
